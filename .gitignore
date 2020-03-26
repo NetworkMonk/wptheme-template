@@ -1,0 +1,5 @@
+.vscode/
+out/
+debug/
+package-lock.json
+node_modules/
