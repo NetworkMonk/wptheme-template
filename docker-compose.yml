@@ -1,0 +1,30 @@
+version: "3.1"
+
+services:
+
+  wordpress:
+    image: wordpress:php7.4-apache
+    restart: always
+    ports:
+      - "8082:80"
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_USER: wp_user
+      WORDPRESS_DB_PASSWORD: Password123
+      WORDPRESS_DB_NAME: wp_db
+    volumes:
+      - ./debug/themes:/var/www/html/wp-content/themes
+      - ./debug/plugins:/var/www/html/wp-content/plugins
+
+
+  db:
+    image: mysql:8.0
+    restart: always
+    command: --default-authentication-plugin=mysql_native_password --sql_mode="NO_ENGINE_SUBSTITUTION"
+    environment: 
+      MYSQL_DATABASE: wp_db
+      MYSQL_USER: wp_user
+      MYSQL_PASSWORD: Password123
+      MYSQL_RANDOM_ROOT_PASSWORD: '1'
+    volumes:
+      - ./debug/mysql:/var/lib/mysql
