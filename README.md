@@ -32,6 +32,8 @@ This project contains or will create the following folders
 
 **src/sass** - Each scss or sass filed located in this folder is used to generate a CSS file in the theme, sub folders are ignored, so can be used to organise complex style sheets into multiple files.
 
+**theme.json** - Contains configuration options regarding how the theme is built. Change options here to customise the theme name. Other options will be added over time.
+
 ## Testing
 
 A docker configuration can be used to set up a basic WordPress environment, it shouldn't need any modification unless you need to change default ports etc.
